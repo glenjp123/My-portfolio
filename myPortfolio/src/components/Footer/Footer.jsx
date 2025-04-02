@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className="bg-gray-800 border-y">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-                <div className="md:flex md:justify-between">
+                {/* <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
                         <Link to="/" className="flex items-center">
                             <img
@@ -67,8 +67,8 @@ export default function Footer() {
                             </ul>
                         </div>
                     </div>
-                </div>
-                <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+                </div> */}
+                {/* <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" /> */}
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <span className="text-sm text-white sm:text-center">
                         © 2025
@@ -77,7 +77,7 @@ export default function Footer() {
                         {/* </a> */}
                         . All Rights Reserved.
                     </span>
-                    <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
+                    {/* <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
                         <Link to="#" className="text-white hover:text-gray-900">
                             <svg
                                 className="w-4 h-4"
@@ -154,7 +154,7 @@ export default function Footer() {
                             </svg>
                             <span className="sr-only">Dribbble account</span>
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </footer>

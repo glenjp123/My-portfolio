@@ -1,117 +1,63 @@
-import React from 'react'
-import { Link,NavLink } from 'react-router';
-// import logo from '.../assets/'
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router";
 
 export default function Header() {
-    return (
-        <header className="shadow sticky z-50 top-0">
-            <nav className="bg-gray-800 border-gray-200 px-4 lg:px-6 py-2.5">
-                <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                    <Link to="/" className="flex items-center">
-                        <img
-                            src="https://i.postimg.cc/2yHLyYW4/Glenn-parmar-logo.png"
-                            className="mr-3 h-12"
-                            alt="Logo"
-                        />
-                    </Link>
-                    {/* <div className="flex items-center lg:order-2">
-                        <Link
-                            to="#"
-                            className="text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
-                        >
-                            Log in
-                        </Link>
-                        <Link
-                            to="#"
-                            className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
-                        >
-                            Get started
-                        </Link>
-                    </div> */}
-                    <div
-                        className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
-                        id="mobile-menu-2"
-                    >
-                        <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                            <li>
-                                <NavLink
-                                    to="/"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-yellow-300" : "text-white"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-yellow-300 lg:p-0`
-                                    }
-                                >
-                                    Home
-                                </NavLink>
-                            </li>
+  const [isOpen, setIsOpen] = useState(false);
 
-                            <li>
-                                <NavLink
-                                    to="/about"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-yellow-300" : "text-white"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-yellow-300 lg:p-0`
-                                    }
-                                >
-                                    About
-                                </NavLink>
-                            </li>
+  return (
+    <header className="shadow z-50 top-0">
+      <nav className="bg-gray-800 border-gray-200 px-4 lg:px-6 py-2.5">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <img
+              src="https://i.postimg.cc/2yHLyYW4/Glenn-parmar-logo.png"
+              className="mr-3 h-12"
+              alt="Logo"
+            />
+          </Link>
 
-                            
-                            <li>
-                                <NavLink
-                                    to="/cpprofile"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-yellow-300" : "text-white"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-yellow-300 lg:p-0`
-                                    }
-                                >
-                                    CP Profiles
-                                </NavLink>
-                            </li>
+          {/* Hamburger Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-white text-2xl lg:hidden"
+          >
+            ☰
+          </button>
 
-
-
-                         
-
-                            <li>
-                                <NavLink
-                                    to="/skill"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-yellow-300" : "text-white"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-yellow-300 lg:p-0`
-                                    }
-                                >
-                                    Skills
-                                </NavLink>
-                            </li>
-
-
-                            <li>
-                                <NavLink
-                                    to="/achievement"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-yellow-300" : "text-white"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-yellow-300 lg:p-0`
-                                    }
-                                >
-                                    Achievements
-                                </NavLink>
-                            </li>
-
-                            <li>
-                                <NavLink
-                                    to="/github"
-                                    className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-yellow-300" : "text-white"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-yellow-300 lg:p-0`
-                                    }
-                                >
-                                    Github
-                                </NavLink>
-                            </li>
-                          
-                            
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
-    );
+          {/* Navigation Links */}
+          <div
+            className={`${
+              isOpen ? "flex" : "hidden"
+            } flex-col lg:flex lg:flex-row lg:items-center w-full lg:w-auto`}
+          >
+            <ul className="flex flex-col lg:flex-row lg:space-x-8 mt-4 lg:mt-0">
+              {[
+                { path: "/", label: "Home" },
+                { path: "/about", label: "About" },
+                { path: "/cpprofile", label: "CP Profiles" },
+                { path: "/skill", label: "Skills" },
+                { path: "/achievement", label: "Achievements" },
+                { path: "/github", label: "Github" },
+                { path: "/contact", label: "Contact" },
+              ].map((item) => (
+                <li key={item.path}>
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      `block py-2 pr-4 pl-3 duration-200 ${
+                        isActive ? "text-yellow-300" : "text-white"
+                      } border-b border-gray-100 hover:bg-gray-700 lg:hover:bg-transparent lg:border-0 hover:text-yellow-300 lg:p-0`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
 }
-
-

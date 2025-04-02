@@ -1,142 +1,60 @@
-import React from 'react'
+import React from "react";
+import { motion } from "framer-motion";
+import { FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
+import { SiLeetcode, SiCodechef, SiCodeforces, SiCodio } from "react-icons/si";
 
-export default function Contact() {
-    return (
-        <div className="relative flex items-top justify-center min-h-[700px] bg-gray-700 sm:items-center sm:pt-0">
-            <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div className="mt-8 overflow-hidden">
-                    <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="p-6 mr-2 bg-gray-100 sm:rounded-lg">
-                            <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold tracking-tight">
-                                Get in touch: 
-                            </h1>
-                            <p className="text-normal text-lg sm:text-xl font-medium text-gray-600 mt-2">
-                                Fill in the form to start a conversation
-                            </p>
+const Contact = () => {
+  const socialLinks = [
+    { name: "LinkedIn", icon: <FaLinkedin />, url: "https://www.linkedin.com/in/glenn-parmar-61290a235/" },
+    { name: "Instagram", icon: <FaInstagram />, url: "https://www.instagram.com/glennparmar.556/" },
+    { name: "GitHub", icon: <FaGithub />, url: "https://github.com/glenjp123" },
+    { name: "LeetCode", icon: <SiLeetcode />, url: "https://leetcode.com/glenjp123" },
+    { name: "CodeChef", icon: <SiCodechef />, url: "https://www.codechef.com/users/glenjp123" },
+    { name: "Codeforces", icon: <SiCodeforces />, url: "https://codeforces.com/profile/GreatestEver" },
+    { name: "Codolio", icon: <SiCodio />, url: "https://codolio.com/profile/GreatestEver" },
+  ];
 
-                            <div className="flex items-center mt-8 text-gray-600">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-gray-500"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                    />
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                                    />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    Acme Inc, Street, State, Postal Code
-                                </div>
-                            </div>
+  return (
+    <div className="p-6 min-h-screen flex items-center justify-center text-white bg-[url('https://t4.ftcdn.net/jpg/13/36/05/13/360_F_1336051399_C93MGq2VkJivK7gquAQSvUNSh479BwCU.webp')] bg-cover bg-center">
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 max-w-4xl w-full rounded-lg shadow-lg p-6 bg-opacity-50"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        {/* Left Side - Contact Heading */}
+        <motion.div 
+          className="flex flex-col justify-center items-center md:border-r border-gray-400 md:pr-6 mb-6 md:mb-0"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <h1 className="text-3xl md:text-4xl font-bold text-center">Contact With Me</h1>
+        </motion.div>
 
-                            <div className="flex items-center mt-4 text-gray-600">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-gray-500"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                    />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    +44 1234567890
-                                </div>
-                            </div>
-
-                            <div className="flex items-center mt-2 text-gray-600">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-gray-500"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                    />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    info@acme.org
-                                </div>
-                            </div>
-                        </div>
-
-                        <form className="p-6 flex flex-col justify-center">
-                            <div className="flex flex-col">
-                                <label for="name" className="hidden">
-                                    Full Name
-                                </label>
-                                <input
-                                    type="name"
-                                    name="name"
-                                    id="name"
-                                    placeholder="Full Name"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-                                />
-                            </div>
-
-                            <div className="flex flex-col mt-2">
-                                <label for="email" className="hidden">
-                                    Email
-                                </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder="Email"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-                                />
-                            </div>
-
-                            <div className="flex flex-col mt-2">
-                                <label for="tel" className="hidden">
-                                    Number
-                                </label>
-                                <input
-                                    type="tel"
-                                    name="tel"
-                                    id="tel"
-                                    placeholder="Telephone Number"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-                                />
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="md:w-32 bg-orange-700 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600 transition ease-in-out duration-300"
-                            >
-                                Submit
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        {/* Right Side - Social Links Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {socialLinks.map((social, index) => (
+            <motion.a
+            key={index}
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-4 text-lg p-3 rounded-lg bg-gray-900 bg-opacity-30 hover:bg-opacity-60 transition duration-200 backdrop-blur-sm border border-gray-500"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: index * 0.08 }}
+            whileHover={{ scale: 1.12, rotate: 3, transition: { duration: 0.15 } }} // Faster response
+          >
+            <span className="text-3xl">{social.icon}</span>
+            <span>{social.name}</span>
+          </motion.a>
+          
+          ))}
         </div>
-    );
-}
+      </motion.div>
+    </div>
+  );
+};
+
+export default Contact;
